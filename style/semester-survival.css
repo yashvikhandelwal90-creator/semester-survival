@@ -1,0 +1,67 @@
+
+.semester-dashboard {
+  background: #fff8e7;
+  border: 2px solid #e7c98b;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: #49351f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.semester-dashboard h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.semester-dashboard p {
+  margin-bottom: 18px;
+  color: #78664e;
+}
+
+.semester-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.semester-stat {
+  background: white;
+  border: 1px solid #eadbbd;
+  border-radius: 12px;
+  padding: 14px 8px;
+}
+
+.semester-stat span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.semester-stat strong {
+  font-size: 25px;
+}
+
+#college-event {
+  background: #f1e4c9;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .semester-dashboard {
+    padding: 12px;
+  }
+
+  .semester-stats {
+    gap: 6px;
+  }
+
+  .semester-stat strong {
+    font-size: 20px;
+  }
+}
