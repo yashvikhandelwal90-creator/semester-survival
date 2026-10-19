@@ -1,90 +1,89 @@
 
-var attendance = 85;
-var energy = 100;
-var cgpa = 9.0;
-var moves = 0;
-var gameEnded = false;
+(function () {
+  var attendance = 85;
+  var energy = 100;
+  var cgpa = 9.0;
+  var moves = 0;
+  var gameEnded = false;
 
-var events = [
-  {
-    message: "📝 Surprise quiz! Your CGPA takes a hit.",
-    effect: function () {
-      cgpa = Math.max(0, cgpa - 0.2);
+  var events = [
+    {
+      message: "📝 Surprise quiz! CGPA -0.2",
+      run: function () {
+        cgpa = Math.max(0, cgpa - 0.2);
+      }
+    },
+    {
+      message: "📚 Assignment deadline! Energy -15",
+      run: function () {
+        energy = Math.max(0, energy - 15);
+      }
+    },
+    {
+      message: "🌙 All-nighter! Attendance -3%, Energy -10",
+      run: function () {
+        attendance = Math.max(0, attendance - 3);
+        energy = Math.max(0, energy - 10);
+      }
+    },
+    {
+      message: "🎉 Great quiz! CGPA +0.1",
+      run: function () {
+        cgpa = Math.min(10, cgpa + 0.1);
+      }
+    },
+    {
+      message: "☕ Break time! Energy +10",
+      run: function () {
+        energy = Math.min(100, energy + 10);
+      }
     }
-  },
-  {
-    message: "📚 Assignment deadline! You lose energy.",
-    effect: function () {
-      energy = Math.max(0, energy - 15);
-    }
-  },
-  {
-    message: "🌙 All-nighter! Attendance suffers.",
-    effect: function () {
-      attendance = Math.max(0, attendance - 3);
-      energy = Math.max(0, energy - 10);
-    }
-  },
-  {
-    message: "🎉 Great quiz score! Your CGPA improves.",
-    effect: function () {
-      cgpa = Math.min(10, cgpa + 0.1);
-    }
-  },
-  {
-    message: "☕ You took a break. Energy restored!",
-    effect: function () {
-      energy = Math.min(100, energy + 10);
-    }
-  }
-];
-
-function updateDashboard(message) {
-  document.getElementById("attendance").textContent =
-    attendance + "%";
-
-  document.getElementById("energy").textContent = energy;
-
-  document.getElementById("cgpa").textContent =
-    cgpa.toFixed(1);
-
-  document.getElementById("college-event").textContent =
-    message;
-}
-
-document.addEventListener("keydown", function (event) {
-  var keys = [
-    "ArrowUp",
-    "ArrowDown",
-    "ArrowLeft",
-    "ArrowRight"
   ];
 
-  if (!keys.includes(event.key) || event.repeat || gameEnded) {
-    return;
+  function updateDashboard(message) {
+    var attendanceEl = document.getElementById("attendance");
+    var energyEl = document.getElementById("energy");
+    var cgpaEl = document.getElementById("cgpa");
+    var eventEl = document.getElementById("college-event");
+
+    if (!attendanceEl || !energyEl || !cgpaEl || !eventEl) {
+      console.error("Semester Survival dashboard elements are missing.");
+      return;
+    }
+
+    attendanceEl.textContent = attendance + "%";
+    energyEl.textContent = energy;
+    cgpaEl.textContent = cgpa.toFixed(1);
+    eventEl.textContent = message;
   }
 
-  moves++;
-  energy = Math.max(0, energy - 2);
+  function handleMove(event) {
+    if (gameEnded || event.repeat) return;
 
-  var message = "📖 Move " + moves +
-    ": Keep balancing your semester!";
+    var keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    if (keys.indexOf(event.key) === -1) return;
 
-  if (moves % 3 === 0) {
-    var randomEvent =
-      events[Math.floor(Math.random() * events.length)];
+    moves++;
+    energy = Math.max(0, energy - 2);
 
-    randomEvent.effect();
-    message = randomEvent.message;
+    var message = "📖 Move " + moves + ": Keep balancing your semester!";
+
+    if (moves % 3 === 0) {
+      var collegeEvent = events[Math.floor(Math.random() * events.length)];
+      collegeEvent.run();
+      message = collegeEvent.message;
+    }
+
+    if (energy === 0 || attendance < 50 || cgpa < 5) {
+      gameEnded = true;
+      message = "💀 Semester failed! Refresh to try again.";
+    }
+
+    updateDashboard(message);
   }
 
-  updateDashboard(message);
+  document.addEventListener("keydown", handleMove, true);
 
-  if (energy === 0 || attendance < 50 || cgpa < 5) {
-    gameEnded = true;
-
-    updateDashboard(
-      "💀 Semester failed! Refresh the page to try again."
-    );
-  }
-},true);
+  updateDashboard("Welcome to the semester! Make your first move.");
+  console.log("Semester Survival script loaded successfully.");
+})();
