@@ -87,4 +87,4 @@ document.addEventListener("keydown", function (event) {
       "💀 Semester failed! Refresh the page to try again."
     );
   }
-});
+},true);
