@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const events = [
-    // YOUR MIT-SPECIFIC EVENTS 💀
+  // MIT MANIPAL MEMES
+  // One of these is guaranteed to appear every 3 moves.
+  const mitEvents = [
     {
       message: "ITS DONE BRO. WE BALL. 💀",
       run: function () {
@@ -76,203 +77,201 @@ document.addEventListener("DOMContentLoaded", function () {
       run: function () {
         energy = Math.max(0, energy - 5);
       }
-    },
+    }
+  ];
 
-    // EXTRA COLLEGE EVENTS 😂
+  // GENERIC COLLEGE EVENTS
+  const collegeEvents = [
     {
-      message: "Attendance at 75%. One more bunk and it's character development 😭",
+      message: "Surprise quiz! CGPA -0.2 📉",
       run: function () {
-        attendance = Math.max(0, attendance - 2);
-        energy = Math.max(0, energy - 5);
+        cgpa = Math.max(0, cgpa - 0.2);
       }
     },
     {
-      message: "Professor said 'this is important for the exam' for the 47th time 💀",
+      message: "Assignment deadline! Energy -15 📚",
+      run: function () {
+        energy = Math.max(0, energy - 15);
+      }
+    },
+    {
+      message: "Late to class! Attendance -3% 🏃",
+      run: function () {
+        attendance = Math.max(0, attendance - 3);
+      }
+    },
+    {
+      message: "Great quiz! CGPA +0.1 🎯",
+      run: function () {
+        cgpa = Math.min(10, cgpa + 0.1);
+      }
+    },
+    {
+      message: "Break time! Energy +10 ☕",
+      run: function () {
+        energy = Math.min(100, energy + 10);
+      }
+    },
+    {
+      message: "Academic comeback arc begins 📈",
+      run: function () {
+        cgpa = Math.min(10, cgpa + 0.1);
+      }
+    },
+    {
+      message: "Group project meeting. Nobody knows what's happening 🤝",
       run: function () {
         energy = Math.max(0, energy - 4);
       }
     },
     {
-      message: "Surprise quiz announced. Preparation has left the chat 🤡",
-      run: function () {
-        cgpa = Math.max(0, cgpa - 0.2);
-        energy = Math.max(0, energy - 8);
-      }
-    },
-    {
-      message: "Academic comeback loading... 📈🔥",
-      run: function () {
-        energy = Math.min(100, energy + 12);
-        cgpa = Math.min(10, cgpa + 0.1);
-      }
-    },
-    {
-      message: "Group project update: apparently YOU are the group project 💀",
-      run: function () {
-        energy = Math.max(0, energy - 10);
-      }
-    },
-    {
-      message: "Maggi at midnight. Five-star dining unlocked 🍜✨",
+      message: "Maggi break! A little happiness 🍜",
       run: function () {
         energy = Math.min(100, energy + 8);
       }
     },
     {
-      message: "DSA problem solved without looking at the solution. WHO ARE YOU?! 🔥",
+      message: "DSA practice completed. One step closer to placements 💻",
       run: function () {
-        energy = Math.min(100, energy + 10);
+        energy = Math.max(0, energy - 2);
       }
     },
     {
-      message: "Fixed one bug. Created four more. Balance restored ⚖️💀",
+      message: "Bug fixed! You have earned your developer badge 🐛",
       run: function () {
-        energy = Math.max(0, energy - 6);
+        energy = Math.min(100, energy + 5);
       }
     },
     {
-      message: "Endsem timetable released. Goodbye, sleep schedule 📅😭",
+      message: "Endsem season is approaching. Lock in 📖",
       run: function () {
-        energy = Math.max(0, energy - 12);
+        energy = Math.max(0, energy - 5);
       }
     },
     {
-      message: "Assignment submitted two seconds before the deadline. WE TAKE THOSE 🫡",
+      message: "Assignment submitted before the deadline! Rare W ✅",
       run: function () {
-        energy = Math.min(100, energy + 10);
+        energy = Math.min(100, energy + 5);
       }
     },
     {
-      message: "Club work + DSA + assignments + attendance. Bro has 47 tabs open 😭",
-      run: function () {
-        energy = Math.max(0, energy - 8);
-      }
-    },
-    {
-      message: "THE CODE WORKED ON THE FIRST TRY?! CALL THE NEWS 🚨🔥",
-      run: function () {
-        energy = Math.min(100, energy + 12);
-      }
-    },
-    {
-      message: "Checked SLCM again. Marks haven't magically changed 💀",
-      run: function () {
-        energy = Math.max(0, energy - 3);
-      }
-    },
-    {
-      message: "Unexpected free period. Happiness.exe is running 🎉",
-      run: function () {
-        energy = Math.min(100, energy + 10);
-      }
-    },
-    {
-      message: "Full night's sleep achieved. Rare legendary drop 🛌✨",
-      run: function () {
-        energy = Math.min(100, energy + 20);
-      }
-    },
-    {
-      message: "You went to study and somehow ended up scrolling for an hour 📱💀",
+      message: "Club work and academics fighting for your time 😭",
       run: function () {
         energy = Math.max(0, energy - 4);
       }
     },
     {
-      message: "Wi-Fi works perfectly... until the assignment upload starts 📶🤡",
+      message: "Your project is live on GitHub Pages! 🚀",
       run: function () {
-        energy = Math.max(0, energy - 5);
+        energy = Math.min(100, energy + 5);
       }
     },
     {
-      message: "You understand the lecture, but the exam question looks extraterrestrial 👽😭",
+      message: "SLCM is testing your patience again 💀",
       run: function () {
-        energy = Math.max(0, energy - 6);
+        energy = Math.max(0, energy - 3);
       }
     },
     {
-      message: "FEST NIGHT! Main character energy activated 🎉🔥",
+      message: "Free period unlocked! Enjoy it while it lasts 🎉",
       run: function () {
-        energy = Math.min(100, energy + 15);
+        energy = Math.min(100, energy + 10);
       }
     },
     {
-      message: "One small assignment has somehow become an entire research project 💀",
-      run: function () {
-        energy = Math.max(0, energy - 7);
-      }
-    },
-    {
-      message: "You opened the LMS to check one thing and found three new assignments 💀",
-      run: function () {
-        energy = Math.max(0, energy - 5);
-      }
-    },
-    {
-      message: "Everyone found a partner for the lab except you 😭",
-      run: function () {
-        energy = Math.max(0, energy - 6);
-      }
-    },
-    {
-      message: "Your friend said they didn't study and scored 95% 🤡",
-      run: function () {
-        energy = Math.max(0, energy - 5);
-      }
-    },
-    {
-      message: "You finally understand pointers. C programming boss fight defeated 🫡🔥",
+      message: "You got enough sleep. Productivity buff activated 😴",
       run: function () {
         energy = Math.min(100, energy + 12);
       }
     },
     {
-      message: "The assignment instructions are longer than the assignment itself 📄💀",
+      message: "Wi-Fi finally cooperated. Upload successful 📶",
       run: function () {
-        energy = Math.max(0, energy - 5);
-      }
-    },
-    {
-      message: "Made it to class on time. Attendance gods are smiling 🙏",
-      run: function () {
-        attendance = Math.min(100, attendance + 1);
         energy = Math.min(100, energy + 3);
       }
     },
     {
-      message: "Your code works, but you have absolutely no idea why 😭",
+      message: "The exam question looks like it came from another planet 👽",
+      run: function () {
+        energy = Math.max(0, energy - 6);
+      }
+    },
+    {
+      message: "Fest night! Memories over deadlines for a moment 🎉",
+      run: function () {
+        energy = Math.min(100, energy + 8);
+      }
+    },
+    {
+      message: "Research project progress unlocked 🔬",
+      run: function () {
+        energy = Math.max(0, energy - 2);
+      }
+    },
+    {
+      message: "LMS says you have more assignments. Of course it does 🤡",
+      run: function () {
+        energy = Math.max(0, energy - 5);
+      }
+    },
+    {
+      message: "Your lab partner actually showed up. Legendary 🤝",
+      run: function () {
+        energy = Math.min(100, energy + 5);
+      }
+    },
+    {
+      message: "Your friend got 95%. Happy for them. Totally fine. 😭",
+      run: function () {
+        energy = Math.max(0, energy - 2);
+      }
+    },
+    {
+      message: "Pointers have entered the chat. Good luck 💀",
       run: function () {
         energy = Math.max(0, energy - 3);
       }
     },
     {
-      message: "The canteen food actually slaps today?! Rare campus W 🍽️🔥",
+      message: "The instructions are longer than the assignment itself 📄",
       run: function () {
-        energy = Math.min(100, energy + 10);
+        energy = Math.max(0, energy - 2);
       }
     },
     {
-      message: "You made a to-do list instead of doing the things on it 📋🤡",
+      message: "You reached class on time! Attendance +1% 🎯",
       run: function () {
-        energy = Math.max(0, energy - 4);
+        attendance = Math.min(100, attendance + 1);
       }
     },
     {
-      message: "Someone mentions placements and everyone starts calculating CGPA 📈💀",
+      message: "The code works, but you have no idea why 🤡",
       run: function () {
-        energy = Math.max(0, energy - 4);
+        energy = Math.min(100, energy + 3);
       }
     },
     {
-      message: "You survived a full day of classes. Victory screen unlocked 🏆",
+      message: "Canteen food acquired. Surviving another day 🍽️",
       run: function () {
-        energy = Math.min(100, energy + 10);
+        energy = Math.min(100, energy + 5);
       }
     },
     {
-      message: "You pushed code to GitHub and it actually deployed. DEVELOPER ARC UNLOCKED 🚀",
+      message: "You finished something on your to-do list. Small victory ✅",
       run: function () {
-        energy = Math.min(100, energy + 12);
+        energy = Math.min(100, energy + 5);
+      }
+    },
+    {
+      message: "Placements are coming. CGPA and DSA, let's go 💻",
+      run: function () {
+        energy = Math.max(0, energy - 2);
+      }
+    },
+    {
+      message: "You survived another college day. That's a win 🫡",
+      run: function () {
+        energy = Math.min(100, energy + 5);
       }
     }
   ];
@@ -285,25 +284,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   document.addEventListener("keydown", function (e) {
-    const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    if (
+      !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
+    ) {
+      return;
+    }
 
-    if (!arrowKeys.includes(e.key)) return;
     if (e.repeat) return;
 
     moves++;
     energy = Math.max(0, energy - 2);
 
-    let message = "Move " + moves + ": Keep balancing your semester!";
+    let message = "Move " + moves + ": Keep balancing your semester! 🎓";
 
+    // Every third arrow-key press triggers an MIT-specific meme.
     if (moves % 3 === 0) {
-      const chosenEvent = events[Math.floor(Math.random() * events.length)];
-      chosenEvent.run();
-      message = chosenEvent.message;
+      const event =
+        mitEvents[Math.floor(Math.random() * mitEvents.length)];
+
+      event.run();
+      message = event.message;
     }
 
     updateDashboard(message);
   });
 
   updateDashboard("🚨 MIT MANIPAL SURVIVAL MODE 🚨 ITS DONE BRO. WE BALL. 💀");
-  console.log("Semester Survival dashboard loaded!");
+
+  console.log("Semester Survival dashboard loaded.");
 });
