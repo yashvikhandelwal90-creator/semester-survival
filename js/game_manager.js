@@ -158,6 +158,9 @@ GameManager.prototype.move = function (direction) {
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
+          window.dispatchEvent(new CustomEvent("tileMerged", {
+  detail: { value: merged.value }
+}));
           self.grid.removeTile(tile);
 
           // Converge the two tiles' positions
