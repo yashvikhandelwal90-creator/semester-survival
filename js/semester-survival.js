@@ -282,7 +282,20 @@ document.addEventListener("DOMContentLoaded", function () {
     cgpaEl.textContent = cgpa.toFixed(1);
     eventEl.textContent = message;
   }
+window.addEventListener("tileMerged", function (e) {
+  const value = e.detail.value;
 
+  energy = Math.min(100, energy + 2);
+
+  if (value >= 16) {
+    cgpa = Math.min(10, cgpa + 0.1);
+  }
+
+  updateDashboard(
+    "🔥 Merge! " + value + " tile unlocked! Energy +2" +
+    (value >= 16 ? " | CGPA +0.1" : "")
+  );
+});
   document.addEventListener("keydown", function (e) {
     if (
       !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
