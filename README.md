@@ -36,3 +36,34 @@ You can find the same information in the [contributing guide.](https://github.co
 
 ## Donations
 I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
+Semester Survival
+
+"A college-themed twist on the classic 2048 game."
+
+ About
+Semester Survival combines the original 2048 puzzle game with a college-life dashboard. Every move represents the challenge of balancing academics, attendance, and energy throughout the semester.
+
+ Features
+- Classic 2048 gameplay
+-  Attendance tracker
+-  Energy meter that changes with each move
+-  CGPA tracker
+- Random college events and challenges
+
+How to Play
+1. Open the live website.
+2. Use the arrow keys to move the tiles.
+3. Watch your energy decrease as you make moves.
+4. Every third move can trigger a random college event.
+5. Try to survive the semester while playing 2048!
+
+ Live Demo
+https://yashvikhandelwal90-creator.github.io/semester-survival/
+
+ Credits
+The original 2048 game was created by Gabriele Cirulli. This project builds on the original game with a college-themed dashboard and additional JavaScript functionality.
+
+Original project: https://github.com/gabrielecirulli/2048
+
+ Technologies
+ HTML,CSS,JavaScript,GitHub Pages
