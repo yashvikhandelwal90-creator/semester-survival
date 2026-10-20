@@ -65,3 +65,46 @@
     font-size: 20px;
   }
 }
+
+/* Internal campus meme banner */
+.campus-meme-banner {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 18px;
+  border: 2px solid #fbbf24;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #211b35, #151923);
+  color: #ffffff;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.campus-meme-banner .meme-alert {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.campus-meme-banner h3 {
+  margin: 4px 0 8px;
+  color: #fbbf24;
+  font-size: clamp(20px, 4vw, 30px);
+  line-height: 1.25;
+}
+
+.campus-meme-banner p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.campus-meme-banner small {
+  display: block;
+  color: #c5c5d2;
+  font-size: 11px;
+}
+
